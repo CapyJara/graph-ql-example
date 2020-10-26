@@ -1,16 +1,17 @@
-module.exports = `
-  # QUERY TYPES
+const { gql } = require("apollo-server");
 
-  type User {
-    _id: String
-    name: String
-    username: String
-  }
+module.exports = gql`
+# QUERY TYPES
+type User {
+  _id: String
+  name: String
+  username: String
+}
 
-  # INPUT TYPES
-  input NewUserInput {
-    name: String!
-    username: String!
-    password: String!
-  }
+# INPUT TYPES
+input NewUserInput {
+  name: String!
+  username: String!
+  password: String!
+}
 `;

@@ -1,5 +1,7 @@
-module.exports =`
-  type Query {
-    userFindOne(id: String!): User @auth
-  }
+const { gql } = require("apollo-server");
+
+module.exports = gql`
+type Query @auth {
+  userFindOne(id: String!): User
+}
 `;

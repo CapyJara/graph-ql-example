@@ -4,10 +4,9 @@ const mutationTypes = require('./mutation.type');
 const userTypes = require('./users.type');
 const directiveType = require("./directive.type");
 
-const typeDefs = gql`
-  ${queryTypes}
-  ${mutationTypes}
-  ${userTypes}
-  ${directiveType}
-`
-module.exports = typeDefs;
+module.exports = [
+  queryTypes,
+  mutationTypes,
+  userTypes,
+  directiveType
+]
