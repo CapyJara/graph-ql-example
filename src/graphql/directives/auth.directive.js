@@ -22,13 +22,18 @@ class AuthDirective extends SchemaDirectiveVisitor {
     field.resolve = async function (...args) {
       const [, , context] = args;
 
-      const username = context.req.headers.username //todo: fix optional chain
+      // *******************************************
+      // **** THIS PROCESS IS NOT BEST PRACTICE ****
+      // *******************************************
+      const username = context.req.headers.username
       const password = context.req.headers.password
-
       if (!username || !password) throw 'Must provide username and password';
 
       const validUser = await UserModel.findOne({ username, password })
       if (!validUser) throw 'Invalid User'
+      // ********************************************
+      // * REPLACE WITH AUTH SERVICE OF YOUR CHOICE *
+      // ********************************************
 
       context.user = validUser;
       return resolve.apply(this, args);

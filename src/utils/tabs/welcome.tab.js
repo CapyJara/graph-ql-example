@@ -13,7 +13,13 @@ module.exports = {
 `,
   name: 'welcome',
   headers: {
+    // **************************************        
+    // ***** SEE AUTH DIRECTIVE WARNING *****
+    // **************************************
     username: 'capyjara',
     password: 'squid',
+    // *************************************
+    // * REPLACE HEADERS TO MATCH NEW AUTH *
+    // *************************************
   }
 };
