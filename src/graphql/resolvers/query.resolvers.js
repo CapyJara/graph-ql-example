@@ -1,11 +1,5 @@
-const {
+const { userFindOne } = require('./user.resolvers');
+
+module.exports = {
   userFindOne
-} = require('./user.resolvers');
-
-const QueryResolvers = () => ({
-  Query: {
-    userFindOne
-  },
-});
-
-module.exports = QueryResolvers;
+};;

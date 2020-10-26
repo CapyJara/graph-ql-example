@@ -5,10 +5,6 @@ const userCreate = async (_, { user }) => await UserModel.create(user);
 const userFindOne = async (_, { id }) => await UserModel.findById(id);
 
 module.exports = {
-  userQueries: {
-    userFindOne
-  },
-  userMutations: {
-    userCreate
-  }
+  userFindOne,
+  userCreate
 };

@@ -1,13 +1,5 @@
-const { model } = require('mongoose');
+const { userCreate } = require('./user.resolvers');
 
-const {
-  userFindOne
-} = require('./user.resolvers');
-
-const MutationResolvers = () => ({
-  Mutation: {
-    userFindOne
-  },
-});
-
-module.exports = MutationResolvers;
+module.exports = {
+    userCreate
+};
