@@ -1,4 +1,4 @@
-const { SchemaDirectiveVisitor } = require('apollo-server');
+const { SchemaDirectiveVisitor, AuthenticationError } = require('apollo-server');
 const { defaultFieldResolver } = require('graphql');
 const UserModel = require('../../data/users')
 
@@ -27,10 +27,10 @@ class AuthDirective extends SchemaDirectiveVisitor {
       // *******************************************
       const username = context.req.headers.username
       const password = context.req.headers.password
-      if (!username || !password) throw 'Must provide username and password';
+      if (!username || !password) throw new AuthenticationError('Must provide username and password')
 
       const validUser = await UserModel.findOne({ username, password })
-      if (!validUser) throw 'Invalid User'
+      if (!validUser) throw new AuthenticationError('Invalid User')
       // ********************************************
       // * REPLACE WITH AUTH SERVICE OF YOUR CHOICE *
       // ********************************************
