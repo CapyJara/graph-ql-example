@@ -1,0 +1,15 @@
+{
+  "name": "graph-ql-example",
+  "license": "ISC",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon ./src/server.js",
+    "prod": "NODE_ENV=production nodemon ./src/server.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.18.2",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.3.0",
+    "mongoose": "^5.10.10",
+    "nodemon": "^2.0.6"
+  }
+}
