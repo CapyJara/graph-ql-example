@@ -14,4 +14,9 @@ input NewUserInput {
   username: String!
   password: String!
 }
+
+input UserQueryFilterInput {
+  name: String
+  username: String
+}
 `;

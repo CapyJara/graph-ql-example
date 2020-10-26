@@ -25,9 +25,6 @@ class AuthDirective extends SchemaDirectiveVisitor {
       const username = context.req.headers.username //todo: fix optional chain
       const password = context.req.headers.password
 
-      console.log('username', username);
-      console.log('password', password);
-
       if (!username || !password) throw 'Must provide username and password';
 
       const validUser = await UserModel.findOne({ username, password })

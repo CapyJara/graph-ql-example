@@ -1,5 +1,5 @@
-const { userFindOne } = require('./user.resolvers');
+const { userQueries } = require('./user.resolvers');
 
 module.exports = {
-  userFindOne
+  ...userQueries
 };;

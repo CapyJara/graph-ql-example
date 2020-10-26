@@ -1,5 +1,5 @@
-const { userCreate } = require('./user.resolvers');
+const { userMutations } = require('./user.resolvers');
 
 module.exports = {
-    userCreate
+    ...userMutations
 };
