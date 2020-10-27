@@ -1,7 +1,15 @@
-const QueryResolvers = require('./query.resolvers')
-const MutationResolvers = require('./mutation.resolvers')
+const { User, userMutations, userQueries } = require('./user.resolvers')
+const { Garden, gardenMutations, gardenQueries } = require('./garden.resolvers');
 
 module.exports = {
-  Query: QueryResolvers,
-  Mutation: MutationResolvers
+  Query: {
+    ...userQueries,
+    ...gardenQueries,
+  },
+  Mutation: {
+    ...userMutations,
+    ...gardenMutations
+  },
+  User,
+  Garden,
 };
