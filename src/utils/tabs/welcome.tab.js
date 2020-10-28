@@ -1,3 +1,6 @@
+const { users } = require('../../data/seed/seedData')
+const { username, password } = users[0]
+
 module.exports = {
   endpoint: '/graphql',
   query: `
@@ -5,7 +8,7 @@ module.exports = {
 
 # Get a user
 {
-  userFindOne(id: "5f961c12bd017484c0ae5afa") {
+  user(user: { username: "${username}" }) {
     name
     username
   }
@@ -13,7 +16,13 @@ module.exports = {
 `,
   name: 'welcome',
   headers: {
-    username: 'capyjara',
-    password: 'squid',
+    // **************************************        
+    // ***** SEE AUTH DIRECTIVE WARNING *****
+    // **************************************
+    username,
+    password,
+    // *************************************
+    // * REPLACE HEADERS TO MATCH NEW AUTH *
+    // *************************************
   }
 };
