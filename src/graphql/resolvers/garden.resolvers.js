@@ -11,14 +11,14 @@ const garden = async (_, { garden }) => await GardenModel.findById(garden);
 const gardens = async (_, { garden, paging }) => {
   const { offset, limit } = getOffsetLimit(paging)
 
-  await GardenModel
+  return await GardenModel
     .find(garden)
     .skip(offset)
     .limit(limit)
 };
 
-const gardenCreate = async (_, { garden }, { user })
-  => await GardenModel.create({ ...garden, owner: user._id });
+const gardenCreate = async (_, { garden }, { user }) =>
+  await GardenModel.create({ ...garden, owner: user._id });
 
 module.exports = {
   Garden,

@@ -17,10 +17,17 @@ const Shed = {
 };
 
 const shed = async (_, { shed }) => await ShedModel.findById(shed);
-const sheds = async (_, { shed }) => await ShedModel.find(shed);
+const sheds = async (_, { shed, paging }) => {
+  const { offset, limit } = getOffsetLimit(paging)
 
-const shedCreate = async (_, { shed }, { user })
-  => await ShedModel.create({ ...shed, owner: user._id });
+  return await ShedModel
+    .find(shed)
+    .skip(offset)
+    .limit(limit);;
+};
+
+const shedCreate = async (_, { shed }, { user }) =>
+  await ShedModel.create({ ...shed, owner: user._id });
 
 module.exports = {
   Shed,
