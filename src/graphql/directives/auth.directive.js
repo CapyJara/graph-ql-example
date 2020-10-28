@@ -1,8 +1,8 @@
 const { SchemaDirectiveVisitor, AuthenticationError } = require('apollo-server');
 const { defaultFieldResolver } = require('graphql');
-const UserModel = require('../../data/user')
+const UserModel = require('../../data/user');
 
-class AuthDirective extends SchemaDirectiveVisitor {
+module.exports = class AuthDirective extends SchemaDirectiveVisitor {
   visitObject(object) {
     const fields = object.getFields();
 
@@ -19,18 +19,18 @@ class AuthDirective extends SchemaDirectiveVisitor {
   _interceptResolver(field) {
     const { resolve = defaultFieldResolver } = field;
 
-    field.resolve = async function (...args) {
+    field.resolve = async function(...args) {
       const [, , context] = args;
 
       // *******************************************
       // **** THIS PROCESS IS NOT BEST PRACTICE ****
       // *******************************************
-      const username = context.req.headers.username
-      const password = context.req.headers.password
-      if (!username || !password) throw new AuthenticationError('Must provide username and password')
+      const username = context.req.headers.username;
+      const password = context.req.headers.password;
+      if(!username || !password) throw new AuthenticationError('Must provide username and password');
 
-      const validUser = await UserModel.findOne({ username, password })
-      if (!validUser) throw new AuthenticationError('Invalid User')
+      const validUser = await UserModel.findOne({ username, password });
+      if(!validUser) throw new AuthenticationError('Invalid User');
       // ********************************************
       // * REPLACE WITH AUTH SERVICE OF YOUR CHOICE *
       // ********************************************
@@ -39,6 +39,4 @@ class AuthDirective extends SchemaDirectiveVisitor {
       return resolve.apply(this, args);
     };
   }
-}
-
-module.exports = AuthDirective
+};

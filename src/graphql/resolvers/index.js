@@ -1,4 +1,4 @@
-const { User, userMutations, userQueries } = require('./user.resolvers')
+const { User, userMutations, userQueries } = require('./user.resolvers');
 const { Garden, gardenMutations, gardenQueries } = require('./garden.resolvers');
 const { Shed, shedMutations, shedQueries } = require('./shed.resolvers');
 const { Tool, toolMutations, toolQueries } = require('./tool.resolvers');

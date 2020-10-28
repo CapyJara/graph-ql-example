@@ -1,6 +1,6 @@
 const queryTypes = require('./query.type');
 const mutationTypes = require('./mutation.type');
-const directiveType = require("./directive.type");
+const directiveType = require('./directive.type');
 const userTypes = require('./user.type');
 const shedTypes = require('./shed.type');
 const toolTypes = require('./tool.type');
@@ -16,4 +16,4 @@ module.exports = [
   toolTypes,
   gardenTypes,
   pagingTypes,
-]
+];
