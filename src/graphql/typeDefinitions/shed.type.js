@@ -19,6 +19,7 @@ input NewShedInput {
 }
 
 input ShedQueryFilterInput {
+  _id: ID
   owner: ID
   garden: ID
   label: String

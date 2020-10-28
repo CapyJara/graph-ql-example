@@ -16,6 +16,7 @@ input NewToolInput {
 }
 
 input ToolQueryFilterInput {
+  _id: ID
   owner: String
   shed: String
   name: String

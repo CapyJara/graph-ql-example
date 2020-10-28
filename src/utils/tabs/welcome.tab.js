@@ -8,7 +8,7 @@ module.exports = {
 
 # Get a user
 {
-  userFindOne(id: "5f961c12bd017484c0ae5afa") {
+  user(user: { username: "${username}" }) {
     name
     username
   }

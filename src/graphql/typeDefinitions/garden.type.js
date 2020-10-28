@@ -16,6 +16,7 @@ input NewGardenInput {
 }
 
 input GardenQueryFilterInput {
+  _id: ID
   owner: String
   name: String
   type: String

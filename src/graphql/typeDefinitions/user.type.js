@@ -6,6 +6,9 @@ type User {
   _id: String
   name: String
   username: String
+  gardens: [Garden]
+  sheds: [Shed]
+  tools(paging: OffsetLimitPaging): [Tool]
 }
 
 # INPUT TYPES
@@ -16,6 +19,7 @@ input NewUserInput {
 }
 
 input UserQueryFilterInput {
+  _id: ID
   name: String
   username: String
 }
