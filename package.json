@@ -2,6 +2,7 @@
   "name": "graph-ql-example",
   "license": "ISC",
   "scripts": {
+    "seedData": "NODE_ENV=testing node ./src/data/seed/seed.js",
     "dev": "NODE_ENV=development nodemon ./src/server.js",
     "prod": "NODE_ENV=production nodemon ./src/server.js"
   },
@@ -11,5 +12,8 @@
     "graphql": "^15.3.0",
     "mongoose": "^5.10.10",
     "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1"
   }
 }

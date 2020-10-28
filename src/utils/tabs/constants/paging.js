@@ -1,0 +1,4 @@
+module.exports = {
+  DEFAULT_PAGING_OFFSET: 0,
+  DEFAULT_PAGING_LIMIT: 50,
+}

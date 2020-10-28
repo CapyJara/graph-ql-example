@@ -5,18 +5,19 @@ module.exports = gql`
 type Garden {
   _id: ID
   owner: User
-  shed: Shed
+  name: String
   type: String
 }
 
 # INPUT TYPES
 input NewGardenInput {
-  shed: NewShedInput
+  name: String!
   type: String!
 }
 
 input GardenQueryFilterInput {
   owner: String
+  name: String
   type: String
 }
 `;

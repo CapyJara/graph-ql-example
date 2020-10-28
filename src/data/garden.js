@@ -3,7 +3,7 @@ const { USER_MODEL, SHED_MODEL } = require('./dbConstants');
 
 const gardenSchema = {
   owner: { type: mongoose.Schema.Types.ObjectId, ref: USER_MODEL, require: true },
-  shed: { type: mongoose.Schema.Types.ObjectId, ref: SHED_MODEL },
+  name: { type: String, unique: true },
   type: {
     type: String,
     required: true,

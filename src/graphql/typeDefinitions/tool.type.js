@@ -6,18 +6,18 @@ type Tool {
   _id: ID
   owner: User
   shed: Shed
-  tool: String
+  name: String
 }
 
 # INPUT TYPES
 input NewToolInput {
   shed: ID!
-  tool: String!
+  name: String!
 }
 
 input ToolQueryFilterInput {
   owner: String
   shed: String
-  tool: String
+  name: String
 }
 `;

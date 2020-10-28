@@ -5,18 +5,23 @@ module.exports = gql`
 type Shed {
   _id: ID
   owner: User
-  tools: [Tool]
+  garden: Garden
+  label: String
   type: Shed
+  tools(paging: OffsetLimitPaging): [Tool]
 }
 
 # INPUT TYPES
 input NewShedInput {
-  tools: NewToolInput
+  garden: ID!
+  label: String!
   type: String!
 }
 
 input ShedQueryFilterInput {
-  owner: String
+  owner: ID
+  garden: ID
+  label: String
   type: String
 }
 `;
