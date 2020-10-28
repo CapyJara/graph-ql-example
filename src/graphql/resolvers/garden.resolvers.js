@@ -1,5 +1,6 @@
 const GardenModel = require('../../data/garden');
 const UserModel = require('../../data/user');
+const { getOffsetLimit } = require('../../utils/tabs/constants/paging');
 const { shedMutations: { shedCreate } } = require('./shed.resolvers');
 
 const Garden = {
@@ -7,7 +8,14 @@ const Garden = {
 }
 
 const garden = async (_, { garden }) => await GardenModel.findById(garden);
-const gardens = async (_, { garden }) => await GardenModel.find(garden);
+const gardens = async (_, { garden, paging }) => {
+  const { offset, limit } = getOffsetLimit(paging)
+
+  await GardenModel
+    .find(garden)
+    .skip(offset)
+    .limit(limit)
+};
 
 const gardenCreate = async (_, { garden }, { user }) => {
   let shed = {};
