@@ -2,7 +2,7 @@
   "name": "graph-ql-example",
   "license": "ISC",
   "scripts": {
-    "seedData": "NODE_ENV=testing node ./src/data/seed/seed.js",
+    "seedData": "NODE_ENV=development node ./src/data/seed/seed.js",
     "dev": "NODE_ENV=development nodemon ./src/server.js",
     "prod": "NODE_ENV=production nodemon ./src/server.js"
   },
