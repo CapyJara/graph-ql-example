@@ -8,7 +8,7 @@ const Tool = {
   shed: async ({ shed }) => await ShedModel.findOne({ _id: shed })
 }
 
-const tool = async (_, { tool }) => await ToolModel.findById(tool);
+const tool = async (_, { tool }) => await ToolModel.findOne(tool);
 const tools = async (_, { tool, paging }) => {
   const { offset, limit } = getOffsetLimit(paging)
 

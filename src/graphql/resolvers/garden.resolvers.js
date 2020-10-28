@@ -7,7 +7,7 @@ const Garden = {
   owner: async ({ owner }) => await UserModel.findOne({ _id: owner }),
 }
 
-const garden = async (_, { garden }) => await GardenModel.findById(garden);
+const garden = async (_, { garden }) => await GardenModel.findOne(garden);
 const gardens = async (_, { garden, paging }) => {
   const { offset, limit } = getOffsetLimit(paging)
 

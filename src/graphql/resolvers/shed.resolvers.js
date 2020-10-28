@@ -16,7 +16,7 @@ const Shed = {
   },
 };
 
-const shed = async (_, { shed }) => await ShedModel.findById(shed);
+const shed = async (_, { shed }) => await ShedModel.findOne(shed);
 const sheds = async (_, { shed, paging }) => {
   const { offset, limit } = getOffsetLimit(paging)
 
