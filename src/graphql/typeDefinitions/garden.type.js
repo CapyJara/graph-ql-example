@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+const { gql } = require('apollo-server');
 
 module.exports = gql`
 # QUERY TYPES
@@ -10,9 +10,14 @@ type Garden {
 }
 
 # INPUT TYPES
-input NewGardenInput {
+input GardenNewInput {
   name: String!
   type: String!
+}
+
+input GardenUpdateInput {
+  name: String
+  type: String
 }
 
 input GardenQueryFilterInput {

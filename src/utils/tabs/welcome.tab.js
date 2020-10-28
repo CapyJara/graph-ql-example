@@ -1,5 +1,5 @@
-const { users } = require('../../data/seed/seedData')
-const { username, password } = users[0]
+const { users } = require('../../data/seed/seedData');
+const { username, password } = users[0];
 
 module.exports = {
   endpoint: '/graphql',

@@ -4,13 +4,14 @@ const ShedModel = require('../../data/shed');
 const { getOffsetLimit } = require('../../utils/tabs/constants/paging');
 
 const Tool = {
-  owner: async ({ owner }) => await UserModel.findOne({ _id: owner }),
-  shed: async ({ shed }) => await ShedModel.findOne({ _id: shed })
-}
+  owner: async({ owner }) => await UserModel.findOne({ _id: owner }),
+  shed: async({ shed }) => await ShedModel.findOne({ _id: shed })
+};
 
-const tool = async (_, { tool }) => await ToolModel.findOne(tool);
-const tools = async (_, { tool, paging }) => {
-  const { offset, limit } = getOffsetLimit(paging)
+const tool = async(_, { tool }) => await ToolModel.findOne(tool);
+
+const tools = async(_, { tool, paging }) => {
+  const { offset, limit } = getOffsetLimit(paging);
 
   return await ToolModel
     .find(tool)
@@ -18,8 +19,14 @@ const tools = async (_, { tool, paging }) => {
     .limit(limit);
 };
 
-const toolCreate = async (_, { tool }, { user }) =>
+const toolCreate = async(_, { tool }, { user }) =>
   await ToolModel.create({ ...tool, owner: user._id });
+
+const toolUpdate = async(_, { tool }, { user }) => 
+  await ToolModel.findOneAndUpdate(
+    { _id: tool._id, owner: user._id },
+    { ...tool, owner: user._id },
+    { new: true });
 
 module.exports = {
   Tool,
@@ -28,6 +35,7 @@ module.exports = {
     tools,
   },
   toolMutations: {
-    toolCreate
+    toolCreate,
+    toolUpdate,
   }
 };

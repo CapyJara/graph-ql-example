@@ -5,7 +5,7 @@ const resolvers = require('./graphql/resolvers/index');
 const typeDefs = require('./graphql/typeDefinitions/index');
 const schemaDirectives = require('./graphql/directives/index');
 const db = require('./data/db');
-const welcomeTab = require('./utils/tabs/welcome.tab');2
+const welcomeTab = require('./utils/tabs/welcome.tab');
 
 db.init();
 
@@ -20,4 +20,4 @@ const app = new ApolloServer({
   context: (ctx) => ctx,
 });
 
-module.exports = app
+module.exports = app;

@@ -3,4 +3,4 @@ module.exports = {
   SHED_MODEL: 'sheds',
   TOOL_MODEL: 'tools',
   GARDEN_MODEL: 'gardens'
-}
+};

@@ -8,4 +8,4 @@ module.exports = {
     offset: paging ? paging.offset : DEFAULT_PAGING_OFFSET,
     limit: paging ? paging.limit : DEFAULT_PAGING_LIMIT,
   })
-}
+};

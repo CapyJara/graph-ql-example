@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { USER_MODEL, SHED_MODEL } = require('./dbConstants');
+const { USER_MODEL } = require('./dbConstants');
 
 const gardenSchema = {
   owner: { type: mongoose.Schema.Types.ObjectId, ref: USER_MODEL, require: true },

@@ -9,15 +9,15 @@ const ToolModel = require('../tool');
 
 db.init();
 
-(async () => {
+(async() => {
   try {
     await removeOldSeedData();
-    await insertSeedData()
+    await insertSeedData();
   }
-  catch (e) {
+  catch(e) {
     console.log(e);
   }
-})()
+})();
 
 async function removeOldSeedData() {
   const seedUsernames = data.users.map(u => u.username);
@@ -33,11 +33,11 @@ async function removeOldSeedData() {
 }
 
 const modelFunctions = {
-    users: async (user) => await UserModel.create(user),
-    gardens: async (garden) => await GardenModel.create(garden),
-    sheds: async (shed) => await ShedModel.create(shed),
-    tools: async (tool) => await ToolModel.create(tool),
-}
+  users: async(user) => await UserModel.create(user),
+  gardens: async(garden) => await GardenModel.create(garden),
+  sheds: async(shed) => await ShedModel.create(shed),
+  tools: async(tool) => await ToolModel.create(tool),
+};
 
 async function insertSeedData() {
   try {
@@ -49,7 +49,7 @@ async function insertSeedData() {
     }));
     console.log('Database seeded');
   }
-  catch (e) {
+  catch(e) {
     console.log(e);
   }
 }

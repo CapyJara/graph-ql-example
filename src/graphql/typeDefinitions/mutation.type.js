@@ -1,13 +1,17 @@
-const { gql } = require("apollo-server");
+const { gql } = require('apollo-server');
 
 module.exports = gql`
 type Mutation @auth {
-  userCreate(user: NewUserInput!): User
+  userCreate(user: UserNewInput!): User
+  userUpdate(user: UserUpdateInput!): User
   
-  gardenCreate(garden: NewGardenInput!): Garden
+  gardenCreate(garden: GardenNewInput!): Garden
+  gardenUpdate(garden: GardenUpdateInput!): Garden
 
-  shedCreate(shed: NewShedInput!): Shed
+  shedCreate(shed: ShedNewInput!): Shed
+  shedUpdate(shed: ShedUpdateInput!): Shed
   
-  toolCreate(tool: NewToolInput!): Tool
+  toolCreate(tool: ToolNewInput!): Tool
+  toolUpdate(tool: ToolUpdateInput!): Tool
 }
 `;
