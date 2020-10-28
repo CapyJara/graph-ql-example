@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+const { gql } = require('apollo-server');
 
 module.exports = gql`
 # QUERY TYPES
@@ -10,9 +10,14 @@ type Tool {
 }
 
 # INPUT TYPES
-input NewToolInput {
+input ToolNewInput {
   shed: ID!
   name: String!
+}
+
+input ToolUpdateInput {
+  shed: ID
+  name: String
 }
 
 input ToolQueryFilterInput {

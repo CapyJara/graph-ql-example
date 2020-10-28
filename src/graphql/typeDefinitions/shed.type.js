@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server");
+const { gql } = require('apollo-server');
 
 module.exports = gql`
 # QUERY TYPES
@@ -12,10 +12,16 @@ type Shed {
 }
 
 # INPUT TYPES
-input NewShedInput {
+input ShedNewInput {
   garden: ID!
   label: String!
   type: String!
+}
+
+input ShedUpdateInput {
+  garden: ID
+  label: String
+  type: String
 }
 
 input ShedQueryFilterInput {
