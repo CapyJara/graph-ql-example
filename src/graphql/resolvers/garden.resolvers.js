@@ -17,16 +17,8 @@ const gardens = async (_, { garden, paging }) => {
     .limit(limit)
 };
 
-const gardenCreate = async (_, { garden }, { user }) => {
-  let shed = {};
-
-  if (garden.shed) {
-    const { _id: shedId } = await ShedCreate({}, { shed: garden.shed }, { user })
-    shed = { _id: shedId };
-  }
-
-  return await GardenModel.create({ ...garden, owner: user._id, ...shed })
-};
+const gardenCreate = async (_, { garden }, { user })
+  => await GardenModel.create({ ...garden, owner: user._id });
 
 module.exports = {
   Garden,

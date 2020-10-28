@@ -18,7 +18,8 @@ const tools = async (_, { tool, paging }) => {
     .limit(limit);
 };
 
-const toolCreate = async (_, { tool }, { user }) => await ToolModel.create({ ...tool, owner: user._id });
+const toolCreate = async (_, { tool }, { user })
+  => await ToolModel.create({ ...tool, owner: user._id });
 
 module.exports = {
   Tool,
