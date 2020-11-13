@@ -3,12 +3,9 @@ const { gql } = require('apollo-server');
 module.exports = gql`
 # QUERY TYPES
 type User {
-  _id: String
+  _id: ID
   name: String
   username: String
-  gardens: [Garden]
-  sheds: [Shed]
-  tools(paging: OffsetLimitPaging): [Tool]
 }
 
 # INPUT TYPES
