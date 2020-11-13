@@ -30,7 +30,7 @@ module.exports = class AuthDirective extends SchemaDirectiveVisitor {
       if(!username || !password) throw new AuthenticationError('Must provide username and password');
 
       const validUser = await UserModel.findOne({ username, password });
-      if(!validUser) throw new AuthenticationError('Invalid User');
+      if(!validUser) throw new AuthenticationError('Invalid username or password');
       // ********************************************
       // * REPLACE WITH AUTH SERVICE OF YOUR CHOICE *
       // ********************************************

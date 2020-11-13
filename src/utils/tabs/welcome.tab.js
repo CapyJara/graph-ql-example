@@ -3,15 +3,14 @@ const { username, password } = users[0];
 
 module.exports = {
   endpoint: '/graphql',
-  query: `
-# Welcome to the Go GraphQL Playground
+  query: `# Welcome to the Go GraphQL Playground
 
-# Here's an example query requesting from several different resolvers at once.
+# Here's an example of a named query requesting from several different queries at once.
 # Notice how paging can be applied to queries and fields in this schema.
 # Use the docs to explore possible queries and mutations
 # Auth headers are defaulted to an existing seeded user, change them to authenticate youre own user
 
-{
+query nameThisQuery{
   user(user: { username: "SultryCelery76" }) {
     name
     username
