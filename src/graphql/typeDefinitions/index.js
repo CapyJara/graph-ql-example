@@ -1,23 +1,19 @@
 const queryTypes = require('./query.type');
 const mutationTypes = require('./mutation.type');
 const directiveType = require('./directive.type');
-
-const userTypes = require('./user.type');
 const pagingTypes = require('./paging-type');
 
-// TODO REMOVE
-console.log('**********\nTYPE DEFS:\n', [
-  queryTypes,
-  mutationTypes,
-  userTypes,
-  pagingTypes
-].map(t => t.definitions.map(d => d.name)));
+const userTypes = require('./user.type');
+const dogTypes = require('./dog.type');
+const toyTypes = require('./toy.type');
 
 module.exports = [
   queryTypes,
   mutationTypes,
   directiveType,
+  pagingTypes,
 
   userTypes,
-  pagingTypes
+  dogTypes,
+  toyTypes,
 ];

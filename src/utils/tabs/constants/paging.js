@@ -1,5 +1,5 @@
 const DEFAULT_PAGING_OFFSET = 0;
-const DEFAULT_PAGING_LIMIT = 50;
+const DEFAULT_PAGING_LIMIT = 10;
 
 module.exports = paging => ({
   offset: paging ? paging.offset : DEFAULT_PAGING_OFFSET,

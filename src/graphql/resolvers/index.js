@@ -1,22 +1,19 @@
 const { User, userMutations, userQueries } = require('./user.resolvers');
-
-// TODO REMOVE
-console.log('**********\nRESOLVERS:\n', {
-  Query: {
-    ...userQueries,
-  },
-  Mutation: {
-    ...userMutations,
-  },
-  User,
-});
+const { Dog, dogMutations, dogQueries } = require('./dog.resolvers');
+const { Toy, toyMutations, toyQueries } = require('./toy.resolvers');
 
 module.exports = {
   Query: {
     ...userQueries,
+    ...dogQueries,
+    ...toyQueries,
   },
   Mutation: {
     ...userMutations,
+    ...dogMutations,
+    ...toyMutations,
   },
   User,
+  Dog,
+  Toy,
 };

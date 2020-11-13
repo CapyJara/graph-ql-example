@@ -1,7 +1,12 @@
 const UserModel = require('../../data/user');
+const DogModel = require('../../data/dog');
+const ToyModel = require('../../data/toy');
 const getOffsetLimit = require('../../utils/tabs/constants/paging');
 
-const User = {};
+const User = {
+  dogs: async({ _id }) => await DogModel.find({ owner: _id }),
+  toys: async({ _id }) => await ToyModel.find({ owner: _id })
+};
 
 const user = async(_, { user }) => await UserModel.findOne(user);
 

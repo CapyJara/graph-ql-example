@@ -6,6 +6,8 @@ type User {
   _id: ID
   name: String
   username: String
+  dogs: [Dog]
+  toys: [Toy]
 }
 
 # INPUT TYPES
