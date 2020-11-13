@@ -13,3 +13,11 @@ Graphql example using Apollo framework
   - Paging on queries and fields
   - Tabs in gql playground
 
+  ## Setup
+  - Clone repository
+  - Run `npm install` to install dependencies
+  - Add .env.development file, and optional .env.production file, following .env.example
+  - (optional) `npm run seedData` to seed your data base
+  - Run `npm run dev` to run dev server locally on port 3003
+  - Run `npm run prod` to run prod server locally on port 3003
+  - Open browser at `http://localhost:3003/` to use playground
